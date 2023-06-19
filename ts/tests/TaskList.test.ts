@@ -88,12 +88,12 @@ test(`given a new tasks when using "delete" then we expect the first place of th
 
 test('given a new task when checking the ID then we expect to be 1', () => {
     const task = new Task('test')
-    const list = new TaskList
+    const taskList = new TaskList
 
-    list.add(task)
+    taskList.add(task)
 
     const expectedId = 1
 
-    expect(list[0]).toEqual(expectedId)
+    expect(taskList.list[0]).toEqual(expectedId)
     
 })

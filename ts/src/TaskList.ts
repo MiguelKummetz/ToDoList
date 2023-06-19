@@ -1,7 +1,7 @@
 import { Task } from "./Task"
 
 export class TaskList {
-    private list: Array<Task | null>
+    list: Array<Task | null>
 
     constructor () {
         this.list = []
