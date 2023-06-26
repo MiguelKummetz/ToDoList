@@ -1,27 +1,40 @@
 import { Task } from "./Task"
 
 export class TaskList {
-    private list: Array<Task | null>
+    list: Array<Task | null>
 
     constructor () {
         this.list = []
     }
 
-    add (task: Task) {
+    addTask (task: Task) {
         this.list.push(task)
     }
 
-    find (index: number) {
-
-        return this.list.find(obj => obj?.id === index)
+    findTask (index: number) {
         
-    }
-
-    delete (index: number) {
-        this.list.splice( index, 1)
-    }
-
+        const foundTask = this.list[index]
+        if (foundTask) {
+            return foundTask;
+          }
+            console.log("Objeto no encontrado.");
+          }
+        
+    deleteTask (index: number) {
+            this.list.splice( index, 1)
+        }
+        
     mapList () {
+        let formatedList: string = '';
+        for (let i :number = 0; i < this.list.length; i++) {
+            const taskDTOName = this.list[i]?.toDTO().name
+            const taskDTOisDone = this.list[i]?.toDTO().isDone
+            let isDone: string;
+            taskDTOisDone? isDone = '✅' : isDone = '⭕'
+            const formatedTask: string = `${i + 1}.${taskDTOName}: ${isDone}\n`
 
+            formatedList += formatedTask
+        }
+        return formatedList;
+        }
     }
-}
