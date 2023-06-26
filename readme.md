@@ -18,7 +18,6 @@ L'objectiu d'aquest exercici és crear una aplicació de llista de tasques utili
         
         1. Constructor:
                 - name => Nombre (string)
-                - id => Numero id (number)
                 - isDone => pendiente/completada (boolean)
 
         3. toDTO => Método que muestra los datos de un objeto task
