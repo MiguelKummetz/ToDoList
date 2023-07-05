@@ -1,4 +1,6 @@
 import { Task } from "../src/Task";
+import { addTask, changeStatus, deleteTask } from "../src/listFunctions";
+
 
 describe(`Testing 'Task' 1 -`, () => {
     const name = 'test name'
@@ -6,36 +8,32 @@ describe(`Testing 'Task' 1 -`, () => {
     const task2 = new Task(name)
     const task3 = new Task(name)
     
-    test(`1.given a name to a new Task we expect throw "toDTO" the correct created object`, () => {
+    test(`1.given a new Task we expect when calling "addTask" then the task is added in the array`, () => {
         
         // given o arrange
-    
+        const list: Task[] = []
         // when o act
-        const taskDTO = task1.toDTO()
-        
+        addTask(list, task1)
         // then o assert
         const taskExpected = { name: 'test name', isDone: false}
-        expect(taskDTO).toEqual(taskExpected);
+        expect(list[0]).toEqual(taskExpected);
     });
 
-    test(`2.given a new task when using "changeStatus" we expect isDone to be true`, () => {
+    test(`2.given a new task when using "changeStatus" then we expect isDone to be true`, () => {
     
-        task1.changeStatus()
-    
-        const {isDone} = task1.toDTO() // destructuring
-        expect(isDone).toBeTruthy
+        const list: Task[] = []
+        addTask(list, task1)
+        changeStatus(list, 0)
+        const taskExpected = { name: 'test name', isDone: true}
+        expect(list[0]).toEqual(taskExpected);
     });
 
-    test(`3.given a name to a two new Task we expect throw "toDTO" see the correct ID assingment`, () => {
+    test(`3.given a new task when using "deleteTask" then we expect the list to be empty`, () => {
 
-        // given o arrange
-    
-        // when o act
-        const taskDTO = task3.toDTO()
-        
-        // then o assert
-        const taskExpected = 'test name'
-        expect(taskDTO.name).toEqual(taskExpected);
+        const list: Task[] = []
+        addTask(list, task1)
+        deleteTask(list, 0)
+        expect(list).toBeFalsy
     });
 
   });
