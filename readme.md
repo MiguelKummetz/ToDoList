@@ -20,17 +20,16 @@ L'objectiu d'aquest exercici és crear una aplicació de llista de tasques utili
                 - name => Nombre (string)
                 - isDone => pendiente/completada (boolean)
 
-        3. toDTO => Método que muestra los datos de un objeto task
+## Comandos:
 
-        4. changeStatus => Método que permite cambiar el estado de la task pendiente/completada
+- node app add + "name" => Crea y añade una Task con el nombre dado.
+- node app done + "index" => Cambia el estado de la Task en la posición elegida.
+- node app remove + "index" => Elimina la Task en la posición elegida.
+- node app print => Muestra la lista por consola.
 
-- Clase TaskList:
+## Debug Tests:
 
-        1. Constructor:
-                - list => Array que contendrá los Task creados.
-
-        2. add => Método que añade un objeto task a la array list.
-
-        3. delete => Método que permite eliminar un objeto task de la array.
-
-        4. mapList => Método que mapea y muestra la lista de tasks actual.
+- "npm run addTask" => Añade una Task a la lista con el nombre "TestName".
+- "npm run doneTask" => Cambia el estao de la Task en la posición 1.
+- "npm run removeTask" => Elimina la Task en la posición 1.
+- "npm run printTask" => Muestra la lista por consola.

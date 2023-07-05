@@ -7,22 +7,4 @@ export class Task {
         this.name = name;
         this.isDone = false;
     };
-
-    toDTO () {
-        return {
-            name: this.name,
-            isDone: this.isDone
-        }
-    }
-
-    changeStatus() {
-        this.isDone = !this.isDone
-    }
 };
-
-
-/*
-
-array ListTask numero de entrada de array
-
-*/
